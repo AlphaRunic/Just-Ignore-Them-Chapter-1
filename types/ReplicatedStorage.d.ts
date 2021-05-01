@@ -1,9 +1,10 @@
 interface ReplicatedStorage extends Instance {
 	TS: Folder & {
 		classes: Folder & {
-			DataBase: ModuleScript;
 			Wave: ModuleScript;
 			Exception: ModuleScript;
+			Spring: ModuleScript;
+			DataBase: ModuleScript;
 			Thread: ModuleScript;
 		};
 		Network: ModuleScript;

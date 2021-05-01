@@ -1,4 +1,4 @@
-interface SoundService extends Instance {
+interface StarterPlayerScripts extends Instance {
 	FootstepSounds: SoundGroup & {
 		Grass: Sound;
 		Glass: Sound;
@@ -25,5 +25,13 @@ interface SoundService extends Instance {
 		Pebble: Sound;
 		Fabric: Sound;
 		Ice: Sound;
+	};
+	TS: Folder & {
+		classes: Folder & {
+			UI: ModuleScript;
+			Tweenable: ModuleScript;
+			LoadBar: ModuleScript;
+		};
+		main: LocalScript;
 	};
 }

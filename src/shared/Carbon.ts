@@ -1,14 +1,16 @@
-import { Players, ReplicatedStorage, Workspace } from "@rbxts/services";
+import { Players, ReplicatedStorage, Workspace, RunService as Runtime } from "@rbxts/services";
 import { Network, NetworkType } from "shared/Network";
 
-const Camera: Camera = Workspace.CurrentCamera as Camera;
-const Assets: Folder = ReplicatedStorage.WaitForChild("Assets") as Folder;
+const Camera = Workspace.CurrentCamera as Camera;
+const Assets = ReplicatedStorage.WaitForChild("Assets") as Folder;
 const Player: Player = Players.LocalPlayer;
-const Character: Model = Player.CharacterAdded.Wait()[0];
+let Character: Model;
 let UI: PlayerGui;
 
-if (Player)
+if (Player) {
+    Character = Player.Character || Player.CharacterAdded.Wait()[0];
     UI = Player.WaitForChild("PlayerGui") as PlayerGui;
+}
 
 export type NullishInstance = 
     | Instance
@@ -23,7 +25,8 @@ export type NullishModel =
     | undefined;
 
 export class Carbon {
-    
+    public Render: RBXScriptSignal = Runtime.RenderStepped;
+    public Update: RBXScriptSignal = Runtime.Heartbeat;
     public Network: Network;
     public NetworkType: NetworkType;
 

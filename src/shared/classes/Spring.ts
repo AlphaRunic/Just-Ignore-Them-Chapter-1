@@ -6,9 +6,9 @@ function isNaN(value: unknown) {
 export = class Spring {
     static Iterations = 8;
 
-    public Target = new Vector3();
-    public Position = new Vector3();
-    public Velocity = new Vector3();
+    private Target = new Vector3();
+    private Position = new Vector3();
+    private Velocity = new Vector3();
 
     constructor(
         public Mass=5, 
