@@ -26,6 +26,7 @@ export type NullishModel =
 
 export class Carbon {
     public Render: RBXScriptSignal = Runtime.RenderStepped;
+    public Stepped: RBXScriptSignal = Runtime.Stepped;
     public Update: RBXScriptSignal = Runtime.Heartbeat;
     public Network: Network;
     public NetworkType: NetworkType;
