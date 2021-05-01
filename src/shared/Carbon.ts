@@ -1,6 +1,7 @@
-import { Players, ReplicatedStorage } from "@rbxts/services";
+import { Players, ReplicatedStorage, Workspace } from "@rbxts/services";
 import { Network, NetworkType } from "shared/Network";
 
+const Camera: Camera = Workspace.CurrentCamera as Camera;
 const Assets: Folder = ReplicatedStorage.WaitForChild("Assets") as Folder;
 const Player: Player = Players.LocalPlayer;
 const Character: Model = Player.CharacterAdded.Wait()[0];
@@ -36,4 +37,4 @@ export class Carbon {
     }
 }
 
-export { Assets, Player, Character, UI };
+export { Assets, Player, Character, UI, Camera };
