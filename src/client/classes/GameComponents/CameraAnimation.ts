@@ -1,11 +1,12 @@
 import { Carbon as Framework, Camera } from "shared/Carbon";
+import { Component } from "shared/Component";
 import Wave from "shared/classes/Wave";
 import WalkCycleSprings from "../WalkCycleSprings";
 
 const Carbon = new Framework(script);
 
-export class CameraAnimation {
-    public static Start(): void {
+export class CameraAnimation implements Component {
+    public Start(): void {
         const breathing: Wave = new Wave(.05, 1.5); 
         const walkCycle: WalkCycleSprings = new WalkCycleSprings(30, 35, 8);
 
