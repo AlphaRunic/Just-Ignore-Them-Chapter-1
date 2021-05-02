@@ -10,10 +10,10 @@ export class CameraAnimation implements BaseComponent {
     private walkCycle = new WalkCycleSprings(35, 35, 8);
 
     public Update(dt: number): void {
-        let springCf: CFrame = new CFrame();
+        let springCf = new CFrame();
 
         const wave: number = this.breathing.Update(dt);
-        const breatheCf: CFrame = new CFrame(0, wave, 0);
+        const breatheCf = new CFrame(0, wave, 0);
 
         const walkAnim: CFrame = this.walkCycle.Update(dt);
         

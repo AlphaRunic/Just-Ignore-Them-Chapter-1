@@ -56,9 +56,6 @@ export class Carbon {
             let upd: RBXScriptConnection;
 
             if (isClient) {
-                if (component.Update)
-                    print("Found component.Update");
-
                 Runtime.BindToRenderStep(
                     component.Name, 
                     Enum.RenderPriority.Camera.Value, 
