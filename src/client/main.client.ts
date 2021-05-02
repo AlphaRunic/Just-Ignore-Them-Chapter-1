@@ -1,6 +1,10 @@
-import { Carbon as Framework, Assets, Player, UI, Character  } from "shared/Carbon";
+import { Carbon as Framework } from "shared/Carbon";
 import { CameraAnimation } from "./classes/GameComponents/CameraAnimation";
+import { ViewModel } from "./classes/GameComponents/ViewModel";
 
 const Carbon = new Framework(script);
-const cameraAnimation = new CameraAnimation();
-cameraAnimation.Start();
+
+Carbon.RunComponents([
+    new CameraAnimation(),
+    new ViewModel()
+]);

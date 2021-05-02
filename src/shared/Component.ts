@@ -1,5 +1,8 @@
-export abstract class Component {
-    public abstract Start?: Callback;
-    public abstract Stop?: Callback;
-    public abstract Update?: Callback;
+import { NullishFunction } from "./Carbon";
+
+export abstract class BaseComponent {    
+    public abstract Name: string;
+    public abstract Start?: NullishFunction;
+    public abstract Update?: NullishFunction;
+    public abstract Run?: NullishFunction;
 }

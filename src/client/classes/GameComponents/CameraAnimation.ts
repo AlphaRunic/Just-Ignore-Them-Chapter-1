@@ -1,29 +1,27 @@
 import { Carbon as Framework, Camera } from "shared/Carbon";
-import { Component } from "shared/Component";
+import { BaseComponent } from "shared/Component";
 import Wave from "shared/classes/Wave";
 import WalkCycleSprings from "../WalkCycleSprings";
 
-const Carbon = new Framework(script);
+export class CameraAnimation implements BaseComponent {
+    public Name = "CameraAnimation";
 
-export class CameraAnimation implements Component {
-    public Start(): void {
-        const breathing: Wave = new Wave(.05, 1.5); 
-        const walkCycle: WalkCycleSprings = new WalkCycleSprings(30, 35, 8);
+    private breathing = new Wave(.05, 1.5);
+    private walkCycle = new WalkCycleSprings(35, 35, 8);
 
-        Carbon.Render.Connect((dt: number): void => {
-            let springCf: CFrame = new CFrame();
+    public Update(dt: number): void {
+        let springCf: CFrame = new CFrame();
 
-            const wave: number = breathing.Update(dt);
-            const breatheCf: CFrame = new CFrame(0, wave, 0);
+        const wave: number = this.breathing.Update(dt);
+        const breatheCf: CFrame = new CFrame(0, wave, 0);
 
-            const walkAnim: CFrame = walkCycle.Update(dt);
-            
-            springCf = springCf
-                .mul(walkAnim);
+        const walkAnim: CFrame = this.walkCycle.Update(dt);
+        
+        springCf = springCf
+            .mul(walkAnim);
 
-            Camera.CFrame = Camera.CFrame
-                .mul(breatheCf)
-                .mul(springCf);
-        });
+        Camera.CFrame = Camera.CFrame
+            .mul(breatheCf)
+            .mul(springCf);
     }
 }
